@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="tl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ang Biblia Viewer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-page="viewer" role="tab">Viewer</button>
+      <button class="tab" data-page="search" role="tab">Search</button>
+    </nav>
+
+    <div class="history" id="history">
+      <button id="history-btn" class="btn" aria-haspopup="listbox" aria-expanded="false">History ▾</button>
+      <div id="history-menu" class="menu hidden" role="listbox"></div>
+    </div>
+  </header>
+
+  <!-- ───────── Viewer ───────── -->
+  <main id="page-viewer" class="page">
+    <form class="goto" id="goto-form" autocomplete="off">
+      <label class="field field-book">
+        <span>Book</span>
+        <div class="combo" id="combo-book">
+          <input type="text" id="in-book" placeholder="e.g. Genesis, 1 Sam" spellcheck="false" />
+          <ul class="list hidden" role="listbox"></ul>
+        </div>
+      </label>
+      <label class="field field-num">
+        <span>Chapter</span>
+        <div class="combo" id="combo-chapter">
+          <input type="text" id="in-chapter" inputmode="numeric" placeholder="1" />
+          <ul class="list hidden" role="listbox"></ul>
+        </div>
+      </label>
+      <label class="field field-num">
+        <span>Verse</span>
+        <div class="combo" id="combo-verse">
+          <input type="text" id="in-verse" inputmode="numeric" placeholder="1" />
+          <ul class="list hidden" role="listbox"></ul>
+        </div>
+      </label>
+      <button type="submit" class="btn primary">Go</button>
+    </form>
+
+    <section class="reader">
+      <button id="prev" class="nav" title="Previous verse (←)" aria-label="Previous verse">‹</button>
+      <article class="verse-card">
+        <div id="ref" class="ref">—</div>
+        <p id="verse-text" class="verse-text">Loading…</p>
+      </article>
+      <button id="next" class="nav" title="Next verse (→)" aria-label="Next verse">›</button>
+    </section>
+
+    <footer class="hint">
+      <kbd>←</kbd> previous verse &nbsp;·&nbsp; <kbd>→</kbd> next verse &nbsp;·&nbsp; <kbd>/</kbd> search
+    </footer>
+  </main>
+
+  <!-- ───────── Search ───────── -->
+  <main id="page-search" class="page hidden">
+    <form class="search-form" id="search-form" autocomplete="off">
+      <input type="search" id="search-input" placeholder="Search the text… (all words must match)" spellcheck="false" />
+      <select id="search-book" aria-label="Limit to book"></select>
+      <button type="submit" class="btn primary">Search</button>
+    </form>
+    <div id="search-status" class="status"></div>
+    <ol id="search-results" class="results"></ol>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
