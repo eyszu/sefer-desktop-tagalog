@@ -9,6 +9,11 @@ Prerequisites: Rust, Node.js, and the Tauri platform deps (https://tauri.app/sta
     npm run dev        # development
     npm run build      # installer / bundle
 
+## Installation (windows)
+- download the codes (zip)
+- copy Ang Biblia Viewer_0.1.0_x64_installer.msi
+- install in windows pc
+
 ## Usage
 - **← / →** previous / next verse (crosses chapter and book boundaries)
 - **Book / Chapter / Verse** inputs with autocomplete dropdowns (`1 sam` → I Samuel). Enter picks and advances; Enter on Verse goes.
